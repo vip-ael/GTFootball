@@ -1,0 +1,110 @@
+@media only screen and (min-width: 10px) and (max-width: 800px){
+	body {
+		background-color: black;
+	}
+    .login {
+        position: absolute;
+        left: 5%;
+        background-color: white;
+    }
+    .create {
+        position: absolute;
+        left: 55%;
+        background-color: white;
+    }
+    .spinning {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -3;
+        max-width: 100%;
+    }
+    h1 {
+        position: absolute;
+        color: white;
+        left: 50%;
+    }
+    form {
+        position: absolute;
+        color: white;
+        left: 50%;
+        top: 40%;
+        z-index: 3;
+    }
+    button {
+        z-index: 3;
+        position: relative;
+        color: white;
+        background-color: black;
+        border-color: white;
+        font-size: 24px;
+        border-radius: 2px;
+    }
+
+    button:hover{
+        position: relative;
+        color: black;
+        background-color: white;
+        border-color: white;
+        font-size: 24px;
+        border-radius: 2px;
+    }
+    svg {
+        position: relative;
+        z-index: 3;
+        left: 50%;
+    }
+    input {
+        position: relative;
+        z-index: 3;
+    }
+    .videoElement {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        z-index: -3;
+    }
+    #a-scene {
+        position: absolute;
+        z-index: 0;
+    }
+    select {
+        position: relative;
+        z-index: 3;
+        left: 50%;
+    }
+    .myInputautocomplete-items {
+        z-index: 10;
+    }
+    strong {
+        position: relative;
+        left: 50%;
+    }
+    font {
+        position: relative;
+        left: 50%;
+    }
+    .indexButtons {
+        position: absolute;
+        top: 50vh;
+    }
+
+    .data {
+        position: relative;
+        color: white;
+    }
+    .data form {
+        position: relative;
+        left: 0%;
+        top: 0%;
+        z-index: 3;
+    }
+    .data input {
+        position: relative;
+        left: 0%;
+        top: 0%;
+        z-index: 3;
+    }
+
+}

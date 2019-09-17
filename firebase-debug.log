@@ -1,0 +1,445 @@
+[debug] [2019-06-02T18:52:11.361Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T18:52:11.363Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase deploy
+[debug] [2019-06-02T18:52:11.363Z] CLI Version:   6.10.0
+[debug] [2019-06-02T18:52:11.363Z] Platform:      darwin
+[debug] [2019-06-02T18:52:11.363Z] Node Version:  v10.14.2
+[debug] [2019-06-02T18:52:11.364Z] Time:          Sun Jun 02 2019 14:52:11 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T18:52:11.364Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T18:52:11.370Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T18:52:11.370Z] > authorizing via signed-in user
+[debug] [2019-06-02T18:52:11.370Z] [iam] checking project research-f207a for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-06-02T18:52:11.372Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T18:52:15.672Z] <<< HTTP RESPONSE 500
+[debug] [2019-06-02T18:52:15.672Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-06-02T18:52:15.850Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 18:52:15 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "server-timing": "gfet4t7; dur=3513",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "cloudresourcemanager.googleapis.com",
+        "port": 443,
+        "hostname": "cloudresourcemanager.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/research-f207a:testIamPermissions",
+        "path": "/v1/projects/research-f207a:testIamPermissions",
+        "href": "https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions"
+      },
+      "method": "POST"
+    }
+  }
+}
+[debug] [2019-06-02T18:54:15.947Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T18:54:15.949Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase deploy
+[debug] [2019-06-02T18:54:15.949Z] CLI Version:   6.10.0
+[debug] [2019-06-02T18:54:15.949Z] Platform:      darwin
+[debug] [2019-06-02T18:54:15.949Z] Node Version:  v10.14.2
+[debug] [2019-06-02T18:54:15.949Z] Time:          Sun Jun 02 2019 14:54:15 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T18:54:15.949Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T18:54:15.955Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T18:54:15.955Z] > authorizing via signed-in user
+[debug] [2019-06-02T18:54:15.956Z] [iam] checking project research-f207a for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-06-02T18:54:15.957Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T18:54:20.804Z] <<< HTTP RESPONSE 500
+[debug] [2019-06-02T18:54:20.805Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-06-02T18:54:21.011Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 18:54:20 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "server-timing": "gfet4t7; dur=4168",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "cloudresourcemanager.googleapis.com",
+        "port": 443,
+        "hostname": "cloudresourcemanager.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/research-f207a:testIamPermissions",
+        "path": "/v1/projects/research-f207a:testIamPermissions",
+        "href": "https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions"
+      },
+      "method": "POST"
+    }
+  }
+}
+[debug] [2019-06-02T18:55:51.475Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T18:55:51.476Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase deploy
+[debug] [2019-06-02T18:55:51.476Z] CLI Version:   6.10.0
+[debug] [2019-06-02T18:55:51.476Z] Platform:      darwin
+[debug] [2019-06-02T18:55:51.476Z] Node Version:  v10.14.2
+[debug] [2019-06-02T18:55:51.477Z] Time:          Sun Jun 02 2019 14:55:51 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T18:55:51.477Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T18:55:51.483Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T18:55:51.483Z] > authorizing via signed-in user
+[debug] [2019-06-02T18:55:51.483Z] [iam] checking project research-f207a for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-06-02T18:55:51.484Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T18:55:55.643Z] <<< HTTP RESPONSE 500
+[debug] [2019-06-02T18:55:55.644Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-06-02T18:55:55.811Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 18:55:55 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "server-timing": "gfet4t7; dur=2653",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "cloudresourcemanager.googleapis.com",
+        "port": 443,
+        "hostname": "cloudresourcemanager.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/research-f207a:testIamPermissions",
+        "path": "/v1/projects/research-f207a:testIamPermissions",
+        "href": "https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions"
+      },
+      "method": "POST"
+    }
+  }
+}
+[debug] [2019-06-02T18:56:08.677Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T18:56:08.678Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase serve
+[debug] [2019-06-02T18:56:08.679Z] CLI Version:   6.10.0
+[debug] [2019-06-02T18:56:08.679Z] Platform:      darwin
+[debug] [2019-06-02T18:56:08.679Z] Node Version:  v10.14.2
+[debug] [2019-06-02T18:56:08.679Z] Time:          Sun Jun 02 2019 14:56:08 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T18:56:08.679Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T18:56:08.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T18:56:08.685Z] > authorizing via signed-in user
+[debug] [2019-06-02T18:56:08.685Z] [iam] checking project research-f207a for permissions ["firebase.projects.get"]
+[debug] [2019-06-02T18:56:08.687Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T18:56:09.110Z] <<< HTTP RESPONSE 500
+[debug] [2019-06-02T18:56:09.110Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-06-02T18:56:09.302Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 18:56:09 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "server-timing": "gfet4t7; dur=230",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "cloudresourcemanager.googleapis.com",
+        "port": 443,
+        "hostname": "cloudresourcemanager.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/research-f207a:testIamPermissions",
+        "path": "/v1/projects/research-f207a:testIamPermissions",
+        "href": "https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions"
+      },
+      "method": "POST"
+    }
+  }
+}
+[debug] [2019-06-02T18:58:40.140Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T18:58:40.141Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase serve
+[debug] [2019-06-02T18:58:40.141Z] CLI Version:   6.10.0
+[debug] [2019-06-02T18:58:40.141Z] Platform:      darwin
+[debug] [2019-06-02T18:58:40.141Z] Node Version:  v10.14.2
+[debug] [2019-06-02T18:58:40.142Z] Time:          Sun Jun 02 2019 14:58:40 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T18:58:40.142Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T18:58:40.148Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T18:58:40.148Z] > authorizing via signed-in user
+[debug] [2019-06-02T18:58:40.148Z] [iam] checking project research-f207a for permissions ["firebase.projects.get"]
+[debug] [2019-06-02T18:58:40.149Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-02T18:58:40.149Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-02T18:58:44.740Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-02T18:58:44.751Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T18:58:45.509Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-02T18:58:45.511Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a  
+ 
+[debug] [2019-06-02T18:58:46.593Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jonwomack/Desktop/AR Narrative'...
+[info] 
+[debug] [2019-06-02T18:58:46.594Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/786354037015/clients/_:getWebAppConfig  
+ 
+[debug] [2019-06-02T18:58:50.848Z] <<< HTTP RESPONSE 500
+[debug] [2019-06-02T18:58:50.848Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, com.google.net.rpc3.client.RpcClientException: <eye3 title='/ResourceCache.GetProjectInfo, DEADLINE_EXCEEDED'/> DEADLINE_EXCEEDED;google.internal.cloud.resourcemanager/ResourceCache.GetProjectInfo;Deadline=3.0s;StartTimeMs=1559501926823;unknown;Deadline(sec)=3.0;ResFormat=AUTOMATIC;NoServerTime;LogBytes=256;FailFast;EffSecLevel=none;ReqFormat=AUTOMATIC;ReqID=eefd92e133eb637a;GlobalID=0;Server=[2002:ae1:e8ce::]:4154
+
+[debug] [2019-06-02T18:58:51.234Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "com.google.net.rpc3.client.RpcClientException: <eye3 title='/ResourceCache.GetProjectInfo, DEADLINE_EXCEEDED'/> DEADLINE_EXCEEDED;google.internal.cloud.resourcemanager/ResourceCache.GetProjectInfo;Deadline=3.0s;StartTimeMs=1559501926823;unknown;Deadline(sec)=3.0;ResFormat=AUTOMATIC;NoServerTime;LogBytes=256;FailFast;EffSecLevel=none;ReqFormat=AUTOMATIC;ReqID=eefd92e133eb637a;GlobalID=0;Server=[2002:ae1:e8ce::]:4154\n",
+      "status": "INTERNAL",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+        }
+      ]
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "com.google.net.rpc3.client.RpcClientException: <eye3 title='/ResourceCache.GetProjectInfo, DEADLINE_EXCEEDED'/> DEADLINE_EXCEEDED;google.internal.cloud.resourcemanager/ResourceCache.GetProjectInfo;Deadline=3.0s;StartTimeMs=1559501926823;unknown;Deadline(sec)=3.0;ResFormat=AUTOMATIC;NoServerTime;LogBytes=256;FailFast;EffSecLevel=none;ReqFormat=AUTOMATIC;ReqID=eefd92e133eb637a;GlobalID=0;Server=[2002:ae1:e8ce::]:4154\n",
+        "status": "INTERNAL",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 18:58:49 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "mobilesdk-pa.googleapis.com",
+        "port": 443,
+        "hostname": "mobilesdk-pa.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/786354037015/clients/_:getWebAppConfig",
+        "path": "/v1/projects/786354037015/clients/_:getWebAppConfig",
+        "href": "https://mobilesdk-pa.googleapis.com/v1/projects/786354037015/clients/_:getWebAppConfig"
+      },
+      "method": "GET"
+    }
+  }
+}
+[debug] [2019-06-02T19:00:19.711Z] ----------------------------------------------------------------------
+[debug] [2019-06-02T19:00:19.712Z] Command:       /usr/local/bin/node /Users/jonwomack/.npm-packages/bin/firebase deploy
+[debug] [2019-06-02T19:00:19.713Z] CLI Version:   6.10.0
+[debug] [2019-06-02T19:00:19.713Z] Platform:      darwin
+[debug] [2019-06-02T19:00:19.713Z] Node Version:  v10.14.2
+[debug] [2019-06-02T19:00:19.713Z] Time:          Sun Jun 02 2019 15:00:19 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-06-02T19:00:19.713Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-02T19:00:19.719Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-02T19:00:19.719Z] > authorizing via signed-in user
+[debug] [2019-06-02T19:00:19.719Z] [iam] checking project research-f207a for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-06-02T19:00:19.721Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/research-f207a:testIamPermissions  
+
+[debug] [2019-06-02T19:00:20.550Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-02T19:00:20.552Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/research-f207a  
+ 
+[debug] [2019-06-02T19:00:22.790Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'research-f207a'...
+[info] 
+[info] i  deploying database, hosting
+[info] i  database: checking rules syntax...
+[debug] [2019-06-02T19:00:22.794Z] >>> HTTP REQUEST PUT https://research-f207a.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+[debug] [2019-06-02T19:00:24.656Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database research-f207a is valid
+[debug] [2019-06-02T19:00:24.657Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/research-f207a/versions  
+
+[debug] [2019-06-02T19:00:35.390Z] <<< HTTP RESPONSE 503
+[debug] [2019-06-02T19:00:35.390Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 503, The service is currently unavailable.
+[debug] [2019-06-02T19:00:35.749Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 503,
+      "message": "The service is currently unavailable.",
+      "status": "UNAVAILABLE"
+    }
+  },
+  "response": {
+    "statusCode": 503,
+    "body": {
+      "error": {
+        "code": 503,
+        "message": "The service is currently unavailable.",
+        "status": "UNAVAILABLE"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Sun, 02 Jun 2019 19:00:35 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "firebasehosting.googleapis.com",
+        "port": 443,
+        "hostname": "firebasehosting.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1beta1/sites/research-f207a/versions",
+        "path": "/v1beta1/sites/research-f207a/versions",
+        "href": "https://firebasehosting.googleapis.com/v1beta1/sites/research-f207a/versions"
+      },
+      "method": "POST"
+    }
+  }
+}
