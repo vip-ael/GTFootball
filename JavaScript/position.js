@@ -1,25 +1,21 @@
 var currLat;
 var currLon;
 var currAlt;
-let tempLat;
-let tempLon;
-let tempAlt;
+var tempLat;
+var tempLon;
+var tempAlt;
 var currHeading;
-var currX;
-var currZ;
+var currX = 0;
+var currZ = 0;
 var initLat;
 var initLon;
 var initAlt;
 var initHeading;
 var init = false;
 
-const cam = document.getElementById("camera");
-const demo = document.getElementById("demo");
-const hello = document.getElementById("hello");
-
-
-const username = localStorage.getItem("username");
-const password = localStorage.getItem("password");
+var rig = document.getElementById("rig");
+var cam = document.getElementById("camera");
+var demo = document.getElementById("demo");
 
 
 //Storing Position i.e. starting AR world
@@ -42,15 +38,14 @@ async function getLocation() {
     return value;
 }
 function storePosition(position) {
-    /*
-    currLat = 27.655791;
-    currLon = -80.389219;
-    currAlt = 291;
-    */
 
-    currLat = position.coords.latitude;
-    currLon = position.coords.longitude;
-    currAlt = position.coords.altitude;
+    currLat = 33.773331;
+    currLon = -84.392848;
+    currAlt = 288;
+    // currLat = position.coords.latitude;
+    // currLon = position.coords.longitude;
+    // currAlt = position.coords.altitude;
+
     console.log(currLat);
     console.log(currLon);
     console.log(currAlt);
@@ -70,18 +65,17 @@ function storePosition(position) {
         init = true;
     }
 
-    currX = 0;
-    currZ = 0;
-    cam.setAttribute('position', {
+    rig.setAttribute('position', {
         x: currX,
         y: currAlt,
         z: currZ
     });
+    cam.setAttribute('camera', 'active', true);
     console.log(currLat);
     console.log(currLon);
     console.log(currAlt);
+    createObject(33.772532, -84.392842, 288, "TESTING");
 }
-
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
 function updatePosition() {
@@ -155,16 +149,44 @@ function teleport() {
     let changeInXDistance = calculateDistance(lat, currLat, lon, currLon);
     currX = currX + changeInXDistance * Math.sin(toRadians(changeInBearing));
     currZ = currZ + changeInXDistance * Math.cos(toRadians(changeInBearing));
-    cam.setAttribute('position', {
+    console.log(currX);
+    console.log(currZ);
+    rig.setAttribute('position', {
         x: -currX,
         y: currAlt,
         z: currZ
     });
     currLat = lat;
     currLon = lon;
+    console.log(currLat);
+    console.log(currLon);
 }
 
 
+async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
+    let positioned = init;
+    console.log("here");
+    if (positioned) {
+        console.log("here");
+        let distance = calculateDistance(currLat, objLatitude, currLon, objLongitude);
+        if (distance < 12500000000) {
+            let bearing = currHeading + calculateBearing(currLat, objLatitude, currLon, objLongitude);
+            let x = distance * Math.sin(toRadians(bearing));
+            let y = objAltitude;
+            let z = distance * -1 * Math.cos(toRadians(bearing));
+            let el = document.createElement('a-entity');
+            el.setAttribute('gltf-model', "./Assets/scoreboard1.glb");
+            el.setAttribute('position', {
+                x: x,
+                y: y,
+                z: z
+            });
+            el.setAttribute('scale', {x: 10, y: 10, z: 10});
+            let sceneEl = document.querySelector('a-scene');
+            sceneEl.appendChild(el);
+        }
+    }
+}
 
 
 

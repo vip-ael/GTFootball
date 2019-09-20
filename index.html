@@ -8,8 +8,6 @@
     <script type="text/javascript" src="JavaScript/calculations.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script type="text/javascript" src="JavaScript/firebase.js"></script>
-    <script type="text/javascript" src="JavaScript/position.js"></script>
-
 </head>
 
 <body>
@@ -18,24 +16,39 @@
 <div class="camera">
     <video  class="videoElement"></video>
 </div>
+
+
+
+
+
 <div id="a-scene">
     <a-scene background="color: black; transparent: true" vr-mode-ui="enabled: false">
         <a-assets id="assets">
+            <a-asset-item id="scoreboard" src="./Assets/scoreboard1.glb"></a-asset-item>
+            <canvas id="canvas2" crossorigin="anonymous"></canvas>
+            <canvas id="myCanvas" width="300" height="100" style="border:1px solid #d3d3d3;">
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    ctx.font = "50px Arial";
+                    ctx.fillText("Hello World",10,50);
+                </script>
         </a-assets>
         <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#93648D"></a-plane>
-        <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
-        <a-sphere id="moving" radius="2.5" position="0 10 0" color="white"></a-sphere>
+        <!--<a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>-->
+        <a-entity id="rig" position="0 1.6 0">
+            <a-entity id="camera" camera="active: true" look-controls></a-entity>
+        </a-entity>
+        <a-sphere id="moving" radius="2.5" position="0 10 0" color="white" material="src:#myCanvas"></a-sphere>
     </a-scene>
 </div>
+<script type="text/javascript" src="JavaScript/position.js"></script>
 <p id="demo"></p>
-<p id="hello"></p>
 <br>
 <input id="teleLat" type="text" value="Lat">
 <input id="teleLon" type="text" value="Lon">
-<button onclick="getLocation()">Start</button>
+<button onclick="storePosition()">Start</button>
 <button onclick="teleport()">Teleport</button>
-<h2 id="currNode"></h2>
-<script type="text/javascript" src="JavaScript/position.js"></script>
 </body>
 </html>
 
