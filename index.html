@@ -18,14 +18,11 @@
 </div>
 
 
-
-
-
 <div id="a-scene">
-    <a-scene background="color: black; transparent: true" vr-mode-ui="enabled: false">
+    <a-scene start background="color: black; transparent: true" vr-mode-ui="enabled: false">
         <a-assets id="assets">
             <a-asset-item id="scoreboard" src="./Assets/scoreboard1.glb"></a-asset-item>
-            <canvas id="canvas2" crossorigin="anonymous"></canvas>
+            <canvas id="canvas"></canvas>
             <canvas id="myCanvas" width="300" height="100" style="border:1px solid #d3d3d3;">
                 <script>
                     var c = document.getElementById("myCanvas");

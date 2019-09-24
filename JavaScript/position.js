@@ -176,12 +176,51 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             let z = distance * -1 * Math.cos(toRadians(bearing));
             let el = document.createElement('a-entity');
             el.setAttribute('gltf-model', "./Assets/scoreboard1.glb");
+            el.setAttribute('id', "scoreboard");
+            el.setAttribute('material', );
             el.setAttribute('position', {
                 x: x,
                 y: y,
                 z: z
             });
+            AFRAME.registerComponent('start',{
+                init: function(){
+                    this.canvas = document.getElementById('canvas');
+                    this.ctx = canvas.getContext("2d");
+                    console.log("somethig should be happening!");
+                    console.log(this.canvas);
+                    console.log(this.ctx);
+                    this.ctx.beginPath();
+                    this.ctx.rect(20, 20, 150, 100);
+                    this.ctx.fillStyle = "red";
+                    this.ctx.fill();
+                    this.ctx.beginPath();
+                    this.ctx.rect(40, 40, 150, 100);
+                    this.ctx.fillStyle = "blue";
+                    this.ctx.fill();
+                }
+            });
+
             el.setAttribute('scale', {x: 10, y: 10, z: 10});
+            AFRAME.registerComponent('modify-materials', {
+                init: function () {
+                    // Wait for model to load.
+                    this.el.addEventListener('model-loaded', () => {
+                        // Grab the mesh / scene.
+                        const obj = this.el.getObject3D('mesh');
+                        console.log("obj");
+                        console.log(obj);
+                        // Go over the submeshes and modify materials we want.
+                        obj.traverse(node => {
+                            if (node.name.indexOf('ship') !== -1) {
+                                node.material.color.set('red');
+                            }
+                        });
+                    });
+                }
+            });
+
+            el.setAttribute('modify-materials', '');
             let sceneEl = document.querySelector('a-scene');
             sceneEl.appendChild(el);
         }
