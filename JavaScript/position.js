@@ -78,7 +78,7 @@ function storePosition(position) {
     //createObject(33.772532, -84.392842, 288, "TESTING");
     if (currLat != null && currLon != null && currAlt != null)
         createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb");
-        createObject(33.779345, -84.404800, 295, "./Assets/Buzz1.glb");
+        createObject(33.779345, -84.404800, 291, "./Assets/Buzz1.glb");
 }
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
@@ -183,7 +183,7 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
                 y: y,
                 z: z
             });
-            el.setAttribute('scale', {x: 10, y: 10, z: 10});
+            el.setAttribute('scale', {x: 1, y: 1, z: 1});
             // AFRAME.registerComponent('modify-materials', {
             //     init: function () {
             //         // Wait for model to load.
