@@ -39,9 +39,9 @@ async function getLocation() {
 }
 function storePosition(position) {
 
-    //currLat = 33.773331;
-    //currLon = -84.392848;
-    //currAlt = 291;
+    //currLat = 33.7798095;
+    //currLon = -84.403503;
+    //currAlt = 263;
     currLat = position.coords.latitude;
     currLon = position.coords.longitude;
     currAlt = position.coords.altitude;
@@ -57,7 +57,7 @@ function storePosition(position) {
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-    //currHeading = 0;
+    //currHeading = 90;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
