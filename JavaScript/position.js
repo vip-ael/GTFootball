@@ -55,12 +55,12 @@ function storePosition(position) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
     //currHeading = 0;
-    //calculateHeading();
+    calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-    currHeading = 0;
+    //currHeading = 0;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
