@@ -45,7 +45,6 @@ function storePosition(position) {
     currLat = position.coords.latitude;
     currLon = position.coords.longitude;
     currAlt = position.coords.altitude;
-
     console.log(currLat);
     console.log(currLon);
     console.log(currAlt);
@@ -57,6 +56,8 @@ function storePosition(position) {
     }
     //currHeading = 0;
     calculateHeading();
+    demo.innerHTML = currLat + " " + currLon + " " + currAlt + " " + currHeading;
+
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
