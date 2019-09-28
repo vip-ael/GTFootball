@@ -21,15 +21,8 @@
 <div id="a-scene">
     <a-scene start background="color: black; transparent: true" vr-mode-ui="enabled: false">
         <a-assets id="assets">
-            <a-asset-item id="scoreboard" src="./Assets/scoreboard1.glb"></a-asset-item>
-            <canvas id="canvas"></canvas>
-            <canvas id="myCanvas" width="300" height="100" style="border:1px solid #d3d3d3;">
-                <script>
-                    var c = document.getElementById("myCanvas");
-                    var ctx = c.getContext("2d");
-                    ctx.font = "50px Arial";
-                    ctx.fillText("Hello World",10,50);
-                </script>
+            <a-asset-item id="scoreboard" src="./Assets/scoreboardFRAMES.glb"></a-asset-item>
+            <a-asset-item id="buzz" src="./Assets/Buzz1.glb"></a-asset-item>
         </a-assets>
         <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#93648D"></a-plane>
         <!--<a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>-->
@@ -39,12 +32,16 @@
         <a-sphere id="moving" radius="2.5" position="0 10 0" color="white" material="src:#myCanvas"></a-sphere>
     </a-scene>
 </div>
-<script type="text/javascript" src="JavaScript/position.js"></script>
 <p id="demo"></p>
-<br>
 <input id="teleLat" type="text" value="Lat">
 <input id="teleLon" type="text" value="Lon">
-<button onclick="storePosition()">Start</button>
+<input id="teleAlt" type="text" value="Alt">
+<input id="teleHead" type="text" value="Head">
+<script type="text/javascript" src="JavaScript/position.js"></script>
+
+<br>
+
+<button onclick="getLocation()">Start</button>
 <button onclick="teleport()">Teleport</button>
 </body>
 </html>
