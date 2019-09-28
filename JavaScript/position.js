@@ -56,7 +56,10 @@ function storePosition(position) {
     }
     //currHeading = 0;
     calculateHeading();
-    demo.innerHTML = currLat + " " + currLon + " " + currAlt + " " + currHeading;
+    document.getElementById("teleLat").value = currLat;
+    document.getElementById("teleLon").value = currLon;
+    document.getElementById("teleAlt").value = currAlt;
+    document.getElementById("teleHead").value = currHeading;
 
     if (init === false) {
         initLat = currLat;
@@ -75,7 +78,7 @@ function storePosition(position) {
     console.log(currLat);
     console.log(currLon);
     console.log(currAlt);
-    createObject(33.772532, -84.392842, 288, "TESTING");
+    //createObject(33.772532, -84.392842, 288, "TESTING");
     createObject(33.779314, -84.404742, 291, "West Village");
 }
 //setInterval(function() {updatePosition(); }, 3000);
