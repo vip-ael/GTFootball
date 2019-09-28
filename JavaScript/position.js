@@ -39,12 +39,12 @@ async function getLocation() {
 }
 function storePosition(position) {
 
-    currLat = 33.773331;
-    currLon = -84.392848;
-    currAlt = 288;
-    // currLat = position.coords.latitude;
-    // currLon = position.coords.longitude;
-    // currAlt = position.coords.altitude;
+    //currLat = 33.773331;
+    //currLon = -84.392848;
+    //currAlt = 291;
+    currLat = position.coords.latitude;
+    currLon = position.coords.longitude;
+    currAlt = position.coords.altitude;
 
     console.log(currLat);
     console.log(currLon);
@@ -55,8 +55,8 @@ function storePosition(position) {
     if (currLat == null || currLon == null || currAlt == null) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
-    currHeading = 0;
-    //calculateHeading();
+    //currHeading = 0;
+    calculateHeading();
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
@@ -75,6 +75,7 @@ function storePosition(position) {
     console.log(currLon);
     console.log(currAlt);
     createObject(33.772532, -84.392842, 288, "TESTING");
+    createObject(33.779314, -84.404742, 291, "West Village");
 }
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
