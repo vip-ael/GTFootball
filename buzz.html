@@ -5,13 +5,22 @@
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+	<script src="./JavaScript/aframe-extras.loader.min.js"></script>
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
       <a-assets>
-		<a-asset-item id="buzz" src="./Assets/Buzz1.glb"></a-asset-item>
+		<a-cubemap id="sky">
+		  <img src="./Assets/environments/posx.jpg">
+		  <img src="./Assets/environments/negx.jpg">
+		  <img src="./Assets/environments/posy.jpg">
+		  <img src="./Assets/environments/negy.jpg">
+		  <img src="./Assets/environments/posz.jpg">
+		  <img src="./Assets/environments/negz.jpg">
+		</a-cubemap>
+		<a-asset-item id="buzz" src="./Assets/Buzz.glb"></a-asset-item>
 	  </a-assets>
-	  <a-entity gltf-model="#buzz" shadow="true" position="0 0 -10" rotation="0 -30 0"></a-entity>
+	  <a-entity id="buzAv" gltf-model="#buzz" shadow="true" position="0 -3 -10" rotation="0 -30 0" animation-mixer material="metalness:0.5; roughness:0.7; envMap: #sky"></a-entity>
     </a-scene>
   </body>
 </html>
