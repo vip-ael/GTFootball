@@ -44,7 +44,7 @@ function storePosition(position) {
     //currAlt = 291;
     currLat = position.coords.latitude;
     currLon = position.coords.longitude;
-    //currAlt = position.coords.altitude;
+    currAlt = position.coords.altitude;
     tempLat = currLat;
     tempLon = currLon;
     tempAlt = currAlt;
@@ -52,7 +52,7 @@ function storePosition(position) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
     //currHeading = 70;
-    //calculateHeading();
+    calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
