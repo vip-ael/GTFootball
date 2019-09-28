@@ -55,7 +55,7 @@ function storePosition(position) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
     //currHeading = 0;
-    calculateHeading();
+    //calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
@@ -79,7 +79,8 @@ function storePosition(position) {
     console.log(currLon);
     console.log(currAlt);
     //createObject(33.772532, -84.392842, 288, "TESTING");
-    createObject(33.779314, -84.404742, 291, "West Village");
+    if (currLat != null && currLon != null && currAlt != null)
+        createObject(33.779314, -84.404742, 291, "West Village");
 }
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
