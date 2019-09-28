@@ -60,7 +60,7 @@ function storePosition(position) {
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-
+    currHeading = 0;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
