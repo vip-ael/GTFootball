@@ -44,18 +44,15 @@ function storePosition(position) {
     //currAlt = 291;
     currLat = position.coords.latitude;
     currLon = position.coords.longitude;
-    currAlt = position.coords.altitude;
-    console.log(currLat);
-    console.log(currLon);
-    console.log(currAlt);
+    //currAlt = position.coords.altitude;
     tempLat = currLat;
     tempLon = currLon;
     tempAlt = currAlt;
     if (currLat == null || currLon == null || currAlt == null) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
-    //currHeading = 0;
-    calculateHeading();
+    //currHeading = 70;
+    //calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
@@ -80,8 +77,8 @@ function storePosition(position) {
     console.log(currAlt);
     //createObject(33.772532, -84.392842, 288, "TESTING");
     if (currLat != null && currLon != null && currAlt != null)
-        createObject(33.774555, -84.397331, 291, "./Assets/scoreboardFRAMES.glb");
-        createObject(33.774555, -84.397331, 295, "./Assets/Buzz1.glb");
+        createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb");
+        createObject(33.779345, -84.404800, 295, "./Assets/Buzz1.glb");
 }
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
@@ -165,16 +162,12 @@ function teleport() {
     });
     currLat = lat;
     currLon = lon;
-    console.log(currLat);
-    console.log(currLon);
 }
 
 
 async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
     let positioned = init;
-    console.log("here");
     if (positioned) {
-        console.log("here");
         let distance = calculateDistance(currLat, objLatitude, currLon, objLongitude);
         if (distance < 12500000000) {
             let bearing = currHeading + calculateBearing(currLat, objLatitude, currLon, objLongitude);
@@ -183,51 +176,33 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             let z = distance * -1 * Math.cos(toRadians(bearing));
             let el = document.createElement('a-entity');
             el.setAttribute('gltf-model', fileName);
-            el.setAttribute('id', "scoreboard");
+            //el.setAttribute('id', "scoreboard");
             el.setAttribute('material', );
             el.setAttribute('position', {
                 x: x,
                 y: y,
                 z: z
             });
-            AFRAME.registerComponent('start',{
-                init: function(){
-                    this.canvas = document.getElementById('canvas');
-                    this.ctx = canvas.getContext("2d");
-                    console.log("somethig should be happening!");
-                    console.log(this.canvas);
-                    console.log(this.ctx);
-                    this.ctx.beginPath();
-                    this.ctx.rect(20, 20, 150, 100);
-                    this.ctx.fillStyle = "red";
-                    this.ctx.fill();
-                    this.ctx.beginPath();
-                    this.ctx.rect(40, 40, 150, 100);
-                    this.ctx.fillStyle = "blue";
-                    this.ctx.fill();
-                }
-            });
-
             el.setAttribute('scale', {x: 10, y: 10, z: 10});
-            AFRAME.registerComponent('modify-materials', {
-                init: function () {
-                    // Wait for model to load.
-                    this.el.addEventListener('model-loaded', () => {
-                        // Grab the mesh / scene.
-                        const obj = this.el.getObject3D('mesh');
-                        console.log("obj");
-                        console.log(obj);
-                        // Go over the submeshes and modify materials we want.
-                        obj.traverse(node => {
-                            if (node.name.indexOf('ship') !== -1) {
-                                node.material.color.set('red');
-                            }
-                        });
-                    });
-                }
-            });
-
-            el.setAttribute('modify-materials', '');
+            // AFRAME.registerComponent('modify-materials', {
+            //     init: function () {
+            //         // Wait for model to load.
+            //         this.el.addEventListener('model-loaded', () => {
+            //             // Grab the mesh / scene.
+            //             const obj = this.el.getObject3D('mesh');
+            //             console.log("obj");
+            //             console.log(obj);
+            //             // Go over the submeshes and modify materials we want.
+            //             obj.traverse(node => {
+            //                 if (node.name.indexOf('ship') !== -1) {
+            //                     node.material.color.set('red');
+            //                 }
+            //             });
+            //         });
+            //     }
+            // });
+            //
+            // el.setAttribute('modify-materials', '');
             let sceneEl = document.querySelector('a-scene');
             sceneEl.appendChild(el);
         }
