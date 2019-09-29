@@ -1,12 +1,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="utf-8" />
-		<title>The Parthenon Project</title>
-		<meta name="description" content="Exploring the Parthenon and the Acropolis in XR" />
+		<title>BuzzAr</title>
+		<meta name="description" content="BuzzARKit" />
 		
 		<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 		<script src="https://rawgit.com/google-ar/three.ar.js/master/dist/three.ar.js"></script>
 		<script src="https://rawgit.com/chenzlabs/aframe-ar/master/dist/aframe-ar.js"></script>
+		<script src="./JavaScript/aframe-extras.js"></script>
 
 		<style>
 			html {
@@ -108,8 +109,7 @@
 			</a-entity>
 
 			
-			<a-entity id="buzAv" gltf-model="#buzz" shadow="" position="0 0 0" scale="1 1 1">
-			</a-entity>
+			<a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 1.0; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -3 -10" rotation="0 -30 0" animation-mixer></a-entity>
 				
 
 </a-scene>
