@@ -5,14 +5,16 @@
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-	<script src="./JavaScript/aframe-extras.loader.min.js"></script>
+	<script src="./JavaScript/aframe-extras.js"></script>
   </head>
   <body>
     <a-scene background="color: #FAFAFA" light="defaultLightsEnabled: false" shadow="enabled: true; autoUpdate: true; type: pcfsoft;">
       <a-assets>
+		<img id="sky" src="./Assets/sky.jpg">
 		<a-asset-item id="buzz" src="./Assets/Buzz.glb"></a-asset-item>
 	  </a-assets>
-	  <a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 0.5; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -3 -10" rotation="0 -30 0" animation-mixer></a-entity>
+	  <!--<a-sky src="#sky"></a-sky>-->
+	  <a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 1.0; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -3 -10" rotation="0 -30 0" animation-mixer></a-entity>
 	  
 	  <a-entity light="type: directional; intensity: 0.87; castShadow: true; shadowCameraTop: 14.09; shadowCameraRight: 7.59; shadowCameraLeft: -20.44; target: #buzAv; shadowMapHeight: 1024; shadowMapWidth: 1024; shadowCameraFar: 50; shadowBias: -0.01" position="-0.41 8.52 5.46"></a-entity>
 	  
