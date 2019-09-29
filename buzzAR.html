@@ -10,12 +10,12 @@
 	<script src="https://rawgit.com/chenzlabs/aframe-ar/master/dist/aframe-ar.js"></script>
   </head>
   <body>
-    <a-scene background="color: #FAFAFA" light="defaultLightsEnabled: false" shadow="enabled: true; autoUpdate: true; type: pcfsoft;" renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;" ar>
+    <a-scene background="color:#5f5f5f; transparent: true;" light="defaultLightsEnabled: false" shadow="enabled: true; autoUpdate: true; type: pcfsoft;" ar>
       <a-assets>
 		<a-asset-item id="buzz" src="./Assets/Buzz.glb"></a-asset-item>
 	  </a-assets>
 	  <!--<a-sky src="#sky"></a-sky>-->
-	  <a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 1.0; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -3 -10" rotation="0 -30 0" animation-mixer></a-entity>
+	  <a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 1.0; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -5 -2" rotation="0 -30 0" animation-mixer scale="0.5 0.5 0.5"></a-entity>
 	  
 	  <a-entity light="type: directional; intensity: 3.2; castShadow: true; shadowCameraTop: 14.09; shadowCameraRight: 7.59; shadowCameraLeft: -20.44; target: #buzAv; shadowMapHeight: 1024; shadowMapWidth: 1024; shadowCameraFar: 50; shadowBias: -0.01" position="-0.41 8.52 5.46"></a-entity>
 	  
