@@ -8,19 +8,15 @@
 	<script src="./JavaScript/aframe-extras.loader.min.js"></script>
   </head>
   <body>
-    <a-scene background="color: #FAFAFA">
+    <a-scene background="color: #FAFAFA" light="defaultLightsEnabled: false" shadow="enabled: true; autoUpdate: true; type: pcfsoft;">
       <a-assets>
-		<a-cubemap id="sky">
-		  <img src="./Assets/environments/posx.jpg">
-		  <img src="./Assets/environments/negx.jpg">
-		  <img src="./Assets/environments/posy.jpg">
-		  <img src="./Assets/environments/negy.jpg">
-		  <img src="./Assets/environments/posz.jpg">
-		  <img src="./Assets/environments/negz.jpg">
-		</a-cubemap>
 		<a-asset-item id="buzz" src="./Assets/Buzz.glb"></a-asset-item>
 	  </a-assets>
-	  <a-entity id="buzAv" gltf-model="#buzz" shadow="true" position="0 -3 -10" rotation="0 -30 0" animation-mixer material="metalness:0.5; roughness:0.7; envMap: #sky"></a-entity>
+	  <a-entity id="buzAv" gltf-model="#buzz" cube-env-map="path: ./Assets/environments/; extension: jpg; reflectivity: 0.5; materials: buzzMat, wings;" shadow="cast: true; receive: true;" position="0 -3 -10" rotation="0 -30 0" animation-mixer></a-entity>
+	  
+	  <a-entity light="type: directional; intensity: 0.87; castShadow: true; shadowCameraTop: 14.09; shadowCameraRight: 7.59; shadowCameraLeft: -20.44; target: #buzAv; shadowMapHeight: 1024; shadowMapWidth: 1024; shadowCameraFar: 50; shadowBias: -0.01" position="-0.41 8.52 5.46"></a-entity>
+	  
+	  <a-entity light="color: #d2f9ff; type: ambient; intensity: 0.52; groundColor: #86cc6f; angle: 60.35"  visible=""></a-entity>
     </a-scene>
   </body>
 </html>
