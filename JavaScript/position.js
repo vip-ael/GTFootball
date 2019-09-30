@@ -39,12 +39,12 @@ async function getLocation() {
 }
 function storePosition(position) {
 
-    currLat = 33.779801;
-    currLon = -84.4036653;
-    currAlt = 263;
-    // currLat = position.coords.latitude;
-    // currLon = position.coords.longitude;
-    // currAlt = position.coords.altitude;
+    //currLat = 33.779801;
+    //currLon = -84.4036653;
+    //currAlt = 263;
+    currLat = position.coords.latitude;
+    currLon = position.coords.longitude;
+    currAlt = position.coords.altitude;
     tempLat = currLat;
     tempLon = currLon;
     tempAlt = currAlt;
@@ -52,12 +52,12 @@ function storePosition(position) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
     //currHeading = 70;
-    //calculateHeading();
+    calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-    currHeading = 90;
+    //currHeading = 90;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
