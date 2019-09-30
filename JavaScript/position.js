@@ -39,9 +39,9 @@ async function getLocation() {
 }
 function storePosition(position) {
 
-    //currLat = 33.779801;
-    //currLon = -84.4036653;
-    //currAlt = 263;
+    // currLat = 33.779801;
+    // currLon = -84.4036653;
+    // currAlt = 263;
     currLat = position.coords.latitude;
     currLon = position.coords.longitude;
     currAlt = position.coords.altitude;
@@ -57,7 +57,7 @@ function storePosition(position) {
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-    //currHeading = 90;
+    // currHeading = 90;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
@@ -183,8 +183,11 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             let z = distance * -1 * Math.cos(toRadians(bearing));
             let el = document.createElement('a-entity');
             el.setAttribute('gltf-model', fileName);
+            if (fileName == "./Assets/Buzz.glb") {
+                console.log("buzz");
+                el.setAttribute('animation-mixer', 'clip:');
+            }
             //el.setAttribute('id', "scoreboard");
-            el.setAttribute('material', );
             el.setAttribute('position', {
                 x: x,
                 y: y,
