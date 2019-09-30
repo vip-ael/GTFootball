@@ -39,12 +39,12 @@ async function getLocation() {
 }
 function storePosition(position) {
 
-    //currLat = 33.779801;
-    //currLon = -84.4036653;
-    //currAlt = 263;
-    currLat = position.coords.latitude;
-    currLon = position.coords.longitude;
-    currAlt = position.coords.altitude;
+    currLat = 33.779801;
+    currLon = -84.4036653;
+    currAlt = 263;
+    // currLat = position.coords.latitude;
+    // currLon = position.coords.longitude;
+    // currAlt = position.coords.altitude;
     tempLat = currLat;
     tempLon = currLon;
     tempAlt = currAlt;
@@ -52,12 +52,12 @@ function storePosition(position) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
     //currHeading = 70;
-    calculateHeading();
+    //calculateHeading();
     document.getElementById("teleLat").value = currLat;
     document.getElementById("teleLon").value = currLon;
     document.getElementById("teleAlt").value = currAlt;
     document.getElementById("teleHead").value = currHeading;
-    //currHeading = 90;
+    currHeading = 90;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
@@ -78,11 +78,11 @@ function storePosition(position) {
     //createObject(33.772532, -84.392842, 288, "TESTING");
     if (currLat != null && currLon != null && currAlt != null)
         createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb"); //West Village
-        createObject(33.779345, -84.404800, 291, "./Assets/Buzz1.glb"); //West Village
+        createObject(33.779345, -84.404800, 291, "./Assets/Buzz.glb"); //West Village
         createObject(33.774595, -84.397339, 283, "./Assets/scoreboardFRAMES.glb"); //Tech Green
-        createObject(33.774595, -84.397339, 283, "./Assets/Buzz1.glb"); //Tech Green
+        createObject(33.774595, -84.397339, 283, "./Assets/Buzz.glb"); //Tech Green
         createObject(33.772518, -84.392860, 280, "./Assets/scoreboardFRAMES.glb");//Stadium
-        createObject(33.772518, -84.392860, 280, "./Assets/Buzz1.glb"); //Stadium
+        createObject(33.772518, -84.392860, 280, "./Assets/Buzz.glb"); //Stadium
 }
 //setInterval(function() {updatePosition(); }, 3000);
 //Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
