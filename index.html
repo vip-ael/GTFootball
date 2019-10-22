@@ -9,9 +9,17 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script type="text/javascript" src="JavaScript/firebase.js"></script>
     <script type="text/javascript" src="JavaScript/aframe-extras.js"></script>
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 
 <body>
+  <button id="goFS">Go fullscreen</button>
+<script>
+  var goFS = document.getElementById("goFS");
+  goFS.addEventListener("click", function() {
+      document.body.requestFullscreen();
+  }, false);
+</script>
 <br>
 <br>
 <div class="camera">
@@ -46,4 +54,3 @@
 <button onclick="teleport()">Teleport</button>
 </body>
 </html>
-
