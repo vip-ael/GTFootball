@@ -23,7 +23,6 @@ async function getLocation() {
     let promise = new Promise(resolve => {
         let exists = false;
         if (navigator.geolocation) {
-            storePosition();
             navigator.geolocation.getCurrentPosition(storePosition);
             if (currLat != null && currLon != null && currAlt != null) {
                 exists = true;
