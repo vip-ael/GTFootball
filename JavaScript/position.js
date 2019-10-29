@@ -54,10 +54,10 @@ function storePosition(position) {
     }
     // currHeading = 70;
     calculateHeading();
-    // document.getElementById("teleLat").value = currLat;
-    // document.getElementById("teleLon").value = currLon;
-    // document.getElementById("teleAlt").value = currAlt;
-    // document.getElementById("teleHead").value = currHeading;
+    document.getElementById("teleLat").value = currLat;
+    document.getElementById("teleLon").value = currLon;
+    document.getElementById("teleAlt").value = currAlt;
+    document.getElementById("teleHead").value = currHeading;
     // currHeading = 90;
     if (init === false) {
         initLat = currLat;
