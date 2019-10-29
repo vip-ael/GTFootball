@@ -23,6 +23,7 @@ async function getLocation() {
     let promise = new Promise(resolve => {
         let exists = false;
         if (navigator.geolocation) {
+            storePosition();
             navigator.geolocation.getCurrentPosition(storePosition);
             if (currLat != null && currLon != null && currAlt != null) {
                 exists = true;
@@ -38,6 +39,7 @@ async function getLocation() {
     return value;
 }
 function storePosition(position) {
+    console.log("Here");
 
     // currLat = 33.779801;
     // currLon = -84.4036653;
@@ -50,13 +52,13 @@ function storePosition(position) {
     tempAlt = currAlt;
     if (currLat == null || currLon == null || currAlt == null) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
-    }
-    //currHeading = 70;
+    }git
+    // currHeading = 70;
     calculateHeading();
-    document.getElementById("teleLat").value = currLat;
-    document.getElementById("teleLon").value = currLon;
-    document.getElementById("teleAlt").value = currAlt;
-    document.getElementById("teleHead").value = currHeading;
+    // document.getElementById("teleLat").value = currLat;
+    // document.getElementById("teleLon").value = currLon;
+    // document.getElementById("teleAlt").value = currAlt;
+    // document.getElementById("teleHead").value = currHeading;
     // currHeading = 90;
     if (init === false) {
         initLat = currLat;
@@ -168,7 +170,8 @@ function teleport() {
     currLon = lon;
 }
 
-
+var score = 10;
+setInterval(function(){ score += 1}, 3000);
 async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
     let positioned = init;
     if (positioned) {
@@ -182,37 +185,48 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             let y = objAltitude;
             let z = distance * -1 * Math.cos(toRadians(bearing));
             let el = document.createElement('a-entity');
-            el.setAttribute('gltf-model', fileName);
+            let elChild1 = document.createElement('a-entity');
+            elChild1.setAttribute('gltf-model', fileName);
             if (fileName == "./Assets/Buzz.glb") {
                 console.log("buzz");
                 el.setAttribute('animation-mixer', 'clip:');
             }
-            //el.setAttribute('id', "scoreboard");
-            el.setAttribute('position', {
-                x: x,
-                y: y,
-                z: z
-            });
-            el.setAttribute('scale', {x: 1, y: 1, z: 1});
-            // AFRAME.registerComponent('modify-materials', {
-            //     init: function () {
-            //         // Wait for model to load.
-            //         this.el.addEventListener('model-loaded', () => {
-            //             // Grab the mesh / scene.
-            //             const obj = this.el.getObject3D('mesh');
-            //             console.log("obj");
-            //             console.log(obj);
-            //             // Go over the submeshes and modify materials we want.
-            //             obj.traverse(node => {
-            //                 if (node.name.indexOf('ship') !== -1) {
-            //                     node.material.color.set('red');
-            //                 }
-            //             });
-            //         });
-            //     }
-            // });
-            //
-            // el.setAttribute('modify-materials', '');
+            if (fileName == "./Assets/scoreboardFRAMES.glb") {
+                el.innerHTML = "<a-entity obj-model='obj:#screen' id='gamescreen' material='src:#scores; shader:flat' position='0 .5 0'></a-entity>"
+
+            }
+
+
+            var canvas = document.getElementById("scores");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "70px Arial";
+            ctx.beginPath();
+            ctx.fillStyle =  "yellow";
+            ctx.rect(0, 0, 512, 512);
+            ctx.fill();
+            ctx.fillStyle = "black";
+            ctx.fillText("Tech", canvas.width/8  , canvas.height/8);
+            ctx.fillText("Miami", 5*canvas.width/8  , canvas.height/8);
+            ctx.fillText(score.toString(), canvas.width/8  , 5*canvas.height/8);
+            ctx.fillText("21", 5*canvas.width/8  , 5*canvas.height/8);
+
+            if (fileName == "./Assets/scoreboardFRAMES.glb") {
+                el.setAttribute('position', {
+                    x: x,
+                    y: y,
+                    z: z
+                });
+            } else if (fileName == "./Assets/Buzz.glb") {
+                el.setAttribute('position', {
+                    x: x,
+                    y: y + 100,
+                    z: z
+                });
+            }
+
+
+            el.appendChild(elChild1);
+            el.setAttribute('scale', {x: 10, y: 10, z: 10});
             let sceneEl = document.querySelector('a-scene');
             sceneEl.appendChild(el);
         }
