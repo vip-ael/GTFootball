@@ -52,7 +52,7 @@ function storePosition(position) {
     tempAlt = currAlt;
     if (currLat == null || currLon == null || currAlt == null) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
-    }git
+    }
     // currHeading = 70;
     calculateHeading();
     // document.getElementById("teleLat").value = currLat;
@@ -122,7 +122,7 @@ function updatePositionHelper(position) {
 
 
 //Sets current heading as the difference between North and user heading.
-function calculateHeading() {
+function gitcalculateHeading() {
     if (window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", function (event) {
             if ('ondeviceorientationabsolute' in window) {
@@ -219,7 +219,7 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             } else if (fileName == "./Assets/Buzz.glb") {
                 el.setAttribute('position', {
                     x: x,
-                    y: y + 100,
+                    y: y + 200,
                     z: z
                 });
             }
