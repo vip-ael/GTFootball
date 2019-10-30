@@ -14,7 +14,9 @@
 
 <body>
   <button id="goFS">Go fullscreen</button>
-<script>
+  <button onclick="getLocation()">Start</button>
+
+  <script>
   var goFS = document.getElementById("goFS");
   goFS.addEventListener("click", function() {
       document.body.requestFullscreen();
@@ -61,7 +63,6 @@
 
 <br>
 
-<button onclick="getLocation()">Start</button>
 <!--<button onclick="teleport()">Teleport</button>-->
 </body>
 </html>

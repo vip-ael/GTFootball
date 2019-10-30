@@ -39,7 +39,7 @@ async function getLocation() {
 }
 function storePosition(position) {
     console.log("Here");
-
+    demo.innerHTML("here");
     // currLat = 33.779801;
     // currLon = -84.4036653;
     // currAlt = 263;
