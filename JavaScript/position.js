@@ -23,6 +23,7 @@ async function getLocation() {
     let promise = new Promise(resolve => {
         let exists = false;
         if (navigator.geolocation) {
+            demo.innerHTML("here1");
             navigator.geolocation.getCurrentPosition(storePosition);
             if (currLat != null && currLon != null && currAlt != null) {
                 exists = true;
@@ -38,8 +39,7 @@ async function getLocation() {
     return value;
 }
 function storePosition(position) {
-    console.log("Here");
-    demo.innerHTML("here");
+    demo.innerHTML("here2");
     // currLat = 33.779801;
     // currLon = -84.4036653;
     // currAlt = 263;

@@ -14,13 +14,20 @@
 
 <body>
   <button id="goFS">Go fullscreen</button>
-  <button onclick="getLocation()">Start</button>
+  <button id="start">Start</button>
 
   <script>
   var goFS = document.getElementById("goFS");
   goFS.addEventListener("click", function() {
       document.body.requestFullscreen();
   }, false);
+
+  var start = document.getElementById("start");
+  start.addEventListener("click", function() {
+      var location = getLocation();
+  }, false);
+
+
 </script>
 
 
