@@ -23,7 +23,6 @@ async function getLocation() {
     let promise = new Promise(resolve => {
         let exists = false;
         if (navigator.geolocation) {
-            demo.innerHTML = "here1";
             navigator.geolocation.getCurrentPosition(storePosition);
             if (currLat != null && currLon != null && currAlt != null) {
                 exists = true;
@@ -39,7 +38,6 @@ async function getLocation() {
     return value;
 }
 function storePosition(position) {
-    demo.innerHTML = "here2";
     // currLat = 33.779801;
     // currLon = -84.4036653;
     // currAlt = 263;
@@ -54,10 +52,10 @@ function storePosition(position) {
     }
     // currHeading = 70;
     calculateHeading();
-    document.getElementById("teleLat").value = currLat;
-    document.getElementById("teleLon").value = currLon;
-    document.getElementById("teleAlt").value = currAlt;
-    document.getElementById("teleHead").value = currHeading;
+    // document.getElementById("teleLat").value = currLat;
+    // document.getElementById("teleLon").value = currLon;
+    // document.getElementById("teleAlt").value = currAlt;
+    // document.getElementById("teleHead").value = currHeading;
     // currHeading = 90;
     if (init === false) {
         initLat = currLat;
