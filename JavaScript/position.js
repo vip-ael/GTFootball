@@ -121,7 +121,7 @@ function updatePositionHelper(position) {
 
 
 //Sets current heading as the difference between North and user heading.
-function gitcalculateHeading() {
+function calculateHeading() {
     if (window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", function (event) {
             if ('ondeviceorientationabsolute' in window) {
