@@ -15,6 +15,7 @@
 <body>
   <button id="goFS">Go fullscreen</button>
   <button id="start">Start</button>
+  <button id="update">Update</button>
 
   <script>
   var goFS = document.getElementById("goFS");
@@ -24,9 +25,14 @@
 
   var start = document.getElementById("start");
   start.addEventListener("click", function() {
-      var location = getLocation();
-  }, false);
+      // var location = getLocation();
+      var location = storePosition();
 
+  }, false);
+  var update = document.getElementById("update");
+  update.addEventListener("click", function() {
+      updateScore();
+  }, false);
 
 </script>
 
@@ -70,6 +76,6 @@
 
 <br>
 
-<!--<button onclick="teleport()">Teleport</button>-->
+<button onclick="json()">JSON</button>
 </body>
 </html>

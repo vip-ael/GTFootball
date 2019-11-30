@@ -38,20 +38,20 @@ async function getLocation() {
     return value;
 }
 function storePosition(position) {
-    // currLat = 33.779801;
-    // currLon = -84.4036653;
-    // currAlt = 263;
-    currLat = position.coords.latitude;
-    currLon = position.coords.longitude;
-    currAlt = position.coords.altitude;
+    currLat = 33.772518;
+    currLon = -84.393860;
+    currAlt = 263;
+    // currLat = position.coords.latitude;
+    // currLon = position.coords.longitude;
+    // currAlt = position.coords.altitude;
     tempLat = currLat;
     tempLon = currLon;
     tempAlt = currAlt;
     if (currLat == null || currLon == null || currAlt == null) {
         demo.innerHTML = "Lat, Lon, or Alt isn't storing";
     }
-    // currHeading = 70;
-    calculateHeading();
+    currHeading = 70;
+    // calculateHeading();
     // document.getElementById("teleLat").value = currLat;
     // document.getElementById("teleLon").value = currLon;
     // document.getElementById("teleAlt").value = currAlt;
@@ -71,15 +71,14 @@ function storePosition(position) {
         z: currZ
     });
     cam.setAttribute('camera', 'active', true);
-    console.log(currLat);
-    console.log(currLon);
-    console.log(currAlt);
+    cam.setAttribute('camera', 'near', .1);
+    cam.setAttribute('camera', 'far', 10000000);
     //createObject(33.772532, -84.392842, 288, "TESTING");
     if (currLat != null && currLon != null && currAlt != null)
-        createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb"); //West Village
-        createObject(33.779345, -84.404800, 291, "./Assets/Buzz.glb"); //West Village
-        createObject(33.774595, -84.397339, 283, "./Assets/scoreboardFRAMES.glb"); //Tech Green
-        createObject(33.774595, -84.397339, 283, "./Assets/Buzz.glb"); //Tech Green
+        // createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb"); //West Village
+        // createObject(33.779345, -84.404800, 291, "./Assets/Buzz.glb"); //West Village
+        // createObject(33.774595, -84.397339, 283, "./Assets/scoreboardFRAMES.glb"); //Tech Green
+        // createObject(33.774595, -84.397339, 283, "./Assets/Buzz.glb"); //Tech Green
         createObject(33.772518, -84.392860, 280, "./Assets/scoreboardFRAMES.glb");//Stadium
         createObject(33.772518, -84.392860, 280, "./Assets/Buzz.glb"); //Stadium
 }
@@ -167,8 +166,6 @@ function teleport() {
     currLon = lon;
 }
 
-var score = 10;
-setInterval(function(){ score += 1}, 3000);
 async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
     let positioned = init;
     if (positioned) {
@@ -183,9 +180,9 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             let z = distance * -1 * Math.cos(toRadians(bearing));
             let el = document.createElement('a-entity');
             let elChild1 = document.createElement('a-entity');
+            el.id = "scoreboard";
             elChild1.setAttribute('gltf-model', fileName);
             if (fileName == "./Assets/Buzz.glb") {
-                console.log("buzz");
                 el.setAttribute('animation-mixer', 'clip:');
             }
             if (fileName == "./Assets/scoreboardFRAMES.glb") {
@@ -204,7 +201,7 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             ctx.fillStyle = "black";
             ctx.fillText("Tech", canvas.width/8  , canvas.height/8);
             ctx.fillText("Miami", 5*canvas.width/8  , canvas.height/8);
-            ctx.fillText(score.toString(), canvas.width/8  , 5*canvas.height/8);
+            ctx.fillText("11", canvas.width/8  , 5*canvas.height/8);
             ctx.fillText("21", 5*canvas.width/8  , 5*canvas.height/8);
 
             if (fileName == "./Assets/scoreboardFRAMES.glb") {
@@ -216,19 +213,66 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
             } else if (fileName == "./Assets/Buzz.glb") {
                 el.setAttribute('position', {
                     x: x,
-                    y: y + 200,
+                    y: y - 50,
                     z: z
                 });
             }
 
 
             el.appendChild(elChild1);
-            el.setAttribute('scale', {x: 10, y: 10, z: 10});
+            el.setAttribute('scale', {x: 5, y: 5, z: 5});
             let sceneEl = document.querySelector('a-scene');
             sceneEl.appendChild(el);
         }
     }
 }
+var score = 0;
+function updateScore() {
+    let el = document.getElementById("scoreboard");
+    console.log("Here");
+    var canvas = document.getElementById("scores");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "70px Arial";
+    ctx.beginPath();
+    ctx.fillStyle =  "yellow";
+    ctx.rect(0, 0, 512, 512);
+    ctx.fill();
+    ctx.fillStyle = "black";
+    ctx.fillText("Tech2", canvas.width/8  , canvas.height/8);
+    ctx.fillText("Miami", 5*canvas.width/8  , canvas.height/8);
+    ctx.fillText(score.toString(), canvas.width/8  , 5*canvas.height/8);
+    ctx.fillText("21", 5*canvas.width/8  , 5*canvas.height/8);
+    score += 1;
+    console.log(score);
+}
 
+function json() {
+    getJSON('http://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401110867',
+            function(err, data) {
+            if (err !== null) {
+                alert('Something went wrong: ' + err);
+            } else {
+                console.log(data);
+                console.log(data.scoringPlays[0].awayScore);
+                console.log(data.scoringPlays[0].homeScore);
+                alert('Your query count: ' + data);
+            }
+        });
+}
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+    };
+    xhr.send();
+};
 
 
