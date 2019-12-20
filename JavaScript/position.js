@@ -40,7 +40,7 @@ async function getLocation() {
 function storePosition(position) {
     currLat = 33.772518;
     currLon = -84.393860;
-    currAlt = 263;
+    currAlt = 280;
     // currLat = position.coords.latitude;
     // currLon = position.coords.longitude;
     // currAlt = position.coords.altitude;
@@ -52,11 +52,6 @@ function storePosition(position) {
     }
     currHeading = 70;
     // calculateHeading();
-    // document.getElementById("teleLat").value = currLat;
-    // document.getElementById("teleLon").value = currLon;
-    // document.getElementById("teleAlt").value = currAlt;
-    // document.getElementById("teleHead").value = currHeading;
-    // currHeading = 90;
     if (init === false) {
         initLat = currLat;
         initLon = currLon;
@@ -73,7 +68,6 @@ function storePosition(position) {
     cam.setAttribute('camera', 'active', true);
     cam.setAttribute('camera', 'near', .1);
     cam.setAttribute('camera', 'far', 10000000);
-    //createObject(33.772532, -84.392842, 288, "TESTING");
     if (currLat != null && currLon != null && currAlt != null)
         // createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb"); //West Village
         // createObject(33.779345, -84.404800, 291, "./Assets/Buzz.glb"); //West Village
@@ -82,8 +76,8 @@ function storePosition(position) {
         createObject(33.772518, -84.392860, 280, "./Assets/scoreboardFRAMES.glb");//Stadium
         createObject(33.772518, -84.392860, 280, "./Assets/Buzz.glb"); //Stadium
 }
-//setInterval(function() {updatePosition(); }, 3000);
-//Updating the Position - Occurs every 3 seconds and only updates if you move more than 7 meters
+
+
 function updatePosition() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(updatePositionHelper);
@@ -170,109 +164,49 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
     let positioned = init;
     if (positioned) {
         let distance = calculateDistance(currLat, objLatitude, currLon, objLongitude);
-        console.log(distance);
         if (distance < 12500000000) {
-            console.log(currHeading);
-            console.log(calculateBearing(currLat, objLatitude, currLon, objLongitude));
             let bearing = currHeading + calculateBearing(currLat, objLatitude, currLon, objLongitude);
             let x = distance * Math.sin(toRadians(bearing));
             let y = objAltitude;
             let z = distance * -1 * Math.cos(toRadians(bearing));
-            let el = document.createElement('a-entity');
-            let elChild1 = document.createElement('a-entity');
-            el.id = "scoreboard";
-            elChild1.setAttribute('gltf-model', fileName);
-            if (fileName == "./Assets/Buzz.glb") {
-                el.setAttribute('animation-mixer', 'clip:');
-            }
-            if (fileName == "./Assets/scoreboardFRAMES.glb") {
-                el.innerHTML = "<a-entity obj-model='obj:#screen' id='gamescreen' material='src:#scores; shader:flat' position='0 .5 0'></a-entity>"
-
-            }
-
-
-            var canvas = document.getElementById("scores");
-            var ctx = canvas.getContext("2d");
-            ctx.font = "70px Arial";
-            ctx.beginPath();
-            ctx.fillStyle =  "yellow";
-            ctx.rect(0, 0, 512, 512);
-            ctx.fill();
-            ctx.fillStyle = "black";
-            ctx.fillText("Tech", canvas.width/8  , canvas.height/8);
-            ctx.fillText("Miami", 5*canvas.width/8  , canvas.height/8);
-            ctx.fillText("11", canvas.width/8  , 5*canvas.height/8);
-            ctx.fillText("21", 5*canvas.width/8  , 5*canvas.height/8);
+            let sceneEl = document.querySelector('a-scene');
 
             if (fileName == "./Assets/scoreboardFRAMES.glb") {
-                el.setAttribute('position', {
+                let screen = document.getElementById("gamescreen");
+                let board = document.getElementById("board");
+                screen.setAttribute('position', {
                     x: x,
                     y: y,
                     z: z
                 });
+                board.setAttribute('position', {
+                    x: x,
+                    y: y,
+                    z: z
+                });
+                screen.setAttribute('visible', true);
+                board.setAttribute('visible', true);
+                screen.setAttribute('scale', {x: 5, y: 5, z: 5});
+                board.setAttribute('scale', {x: 5, y: 5, z: 5});
             } else if (fileName == "./Assets/Buzz.glb") {
+                let el = document.createElement('a-entity');
+                let elChild1 = document.createElement('a-entity');
+                el.id = "scoreboard";
+                elChild1.setAttribute('gltf-model', fileName);
                 el.setAttribute('position', {
                     x: x,
                     y: y - 50,
                     z: z
                 });
+                el.setAttribute('animation-mixer', 'clip:');
+                el.appendChild(elChild1);
+                el.setAttribute('scale', {x: 5, y: 5, z: 5});
+                sceneEl.appendChild(el);
             }
-
-
-            el.appendChild(elChild1);
-            el.setAttribute('scale', {x: 5, y: 5, z: 5});
-            let sceneEl = document.querySelector('a-scene');
-            sceneEl.appendChild(el);
         }
     }
 }
-var score = 0;
-function updateScore() {
-    let el = document.getElementById("scoreboard");
-    console.log("Here");
-    var canvas = document.getElementById("scores");
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = "70px Arial";
-    ctx.beginPath();
-    ctx.fillStyle =  "yellow";
-    ctx.rect(0, 0, 512, 512);
-    ctx.fill();
-    ctx.fillStyle = "black";
-    ctx.fillText("Tech2", canvas.width/8  , canvas.height/8);
-    ctx.fillText("Miami", 5*canvas.width/8  , canvas.height/8);
-    ctx.fillText(score.toString(), canvas.width/8  , 5*canvas.height/8);
-    ctx.fillText("21", 5*canvas.width/8  , 5*canvas.height/8);
-    score += 1;
-    console.log(score);
-}
 
-function json() {
-    getJSON('http://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401110867',
-            function(err, data) {
-            if (err !== null) {
-                alert('Something went wrong: ' + err);
-            } else {
-                console.log(data);
-                console.log(data.scoringPlays[0].awayScore);
-                console.log(data.scoringPlays[0].homeScore);
-                alert('Your query count: ' + data);
-            }
-        });
-}
-var getJSON = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
+
 
 

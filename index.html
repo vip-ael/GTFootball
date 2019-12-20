@@ -41,11 +41,89 @@
 <div class="camera">
     <video  class="videoElement" style="object-fit:fill;height:auto;min-height:100vh;width:auto;"></video>
 </div>
-  <canvas width="512" height="512" id="scores"></canvas>
+  <canvas width="512" height="512" id="scores" crossorigin="anonymous"></canvas>
   <script>
       let canvas1 = document.getElementById("scores");
       canvas1.style.visibility='hidden';
   </script>
+  <script>
+      let score1;
+      let score2;
+      function json() {
+          getJSON('http://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401110867',
+              function(err, data) {
+                  if (err !== null) {
+                      alert('Something went wrong: ' + err);
+                  } else {
+                      score1 = data.scoringPlays[data.scoringPlays.length - 1].awayScore;
+                      score2 = data.scoringPlays[data.scoringPlays.length - 1].homeScore;
+                  }
+              });
+      }
+      var getJSON = function(url, callback) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.responseType = 'json';
+          xhr.onload = function() {
+              var status = xhr.status;
+              if (status === 200) {
+                  callback(null, xhr.response);
+              } else {
+                  callback(status, xhr.response);
+              }
+          };
+          xhr.send();
+      };
+
+
+      AFRAME.registerComponent('draw-canvas', {
+          schema: {default: ''},
+          init: function () {
+              this.canvas = document.getElementById(this.data);
+              this.ctx = this.canvas.getContext('2d');
+              this.ctx.font = "70px Arial";
+              this.ctx.beginPath();
+              this.ctx.fillStyle =  "yellow";
+              this.ctx.rect(0, 0, 512, 512);
+              this.ctx.fill();
+              this.ctx.fillStyle = "black";
+              this.ctx.fillText("Tech", this.canvas.width/8  , this.canvas.height/8);
+              this.ctx.fillText("Miami", 5*this.canvas.width/8  , this.canvas.height/8);
+              this.ctx.fillText("0", this.canvas.width/8  , 5*this.canvas.height/8);
+              this.ctx.fillText("0", 5*this.canvas.width/8  , 5*this.canvas.height/8);
+          },
+          tick: function (time, timeDelta) {
+              if (time == 0) {
+                  json();
+              }
+              if (time > 500) {
+                  if (parseInt(time) % 100 == 0) {
+                      json();
+                  }
+                  this.canvas = document.getElementById(this.data);
+                  this.ctx = this.canvas.getContext('2d');
+                  this.ctx.fillStyle = "yellow";
+                  this.ctx.rect(0, 0, 512, 512);
+                  this.ctx.fill();
+                  this.ctx.fillStyle = "black";
+                  this.ctx.fillText("Tech", this.canvas.width/8  , this.canvas.height/8);
+                  this.ctx.fillText("Miami", 5*this.canvas.width/8  , this.canvas.height/8);
+                  this.ctx.fillText(score1.toString(), this.canvas.width / 8, 5 * this.canvas.height / 8);
+                  this.ctx.fillText(score2.toString(), 5 * this.canvas.width / 8, 5 * this.canvas.height / 8);
+
+                  var el = this.el;
+                  var material;
+                  material = el.getObject3D('mesh').material;
+                  if (!material.map) {
+                      return;
+                  }
+                  material.map.needsUpdate = true;
+              }
+          }
+      });
+
+  </script>
+
 
 
   <script type="text/javascript" src="JavaScript/scoreboard.js"></script>
@@ -62,9 +140,13 @@
             <a-entity id="camera" camera="active: true" look-controls></a-entity>
         </a-entity>
         <!--<a-entity id="completeScoreBoard" position="0 0 0">-->
-            <!--<a-entity gltf-model="#scoreboard" position="0 0 0" scale="1 1 1"></a-entity>-->
             <!--<a-entity obj-model="obj:#screen" position="0 0 0" scale="1 1 1" id="gamescreen" material="src:#scores; shader:flat"></a-entity>-->
         <!--</a-entity>-->
+        <a-entity visible='false' obj-model='obj:#screen' id='gamescreen' material='src:#scores; shader:flat' draw-canvas='scores'></a-entity>
+        <a-entity visible='false' gltf-model="#scoreboard" id='board'></a-entity>
+
+        <!--position="0 .5 -10"-->
+
     </a-scene>
 </div>
 <p id="demo"></p>
