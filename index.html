@@ -139,21 +139,12 @@
         <a-entity id="rig" position="0 1.6 0">
             <a-entity id="camera" camera="active: true" look-controls></a-entity>
         </a-entity>
-        <!--<a-entity id="completeScoreBoard" position="0 0 0">-->
-            <!--<a-entity obj-model="obj:#screen" position="0 0 0" scale="1 1 1" id="gamescreen" material="src:#scores; shader:flat"></a-entity>-->
-        <!--</a-entity>-->
         <a-entity visible='false' obj-model='obj:#screen' id='gamescreen' material='src:#scores; shader:flat' draw-canvas='scores'></a-entity>
         <a-entity visible='false' gltf-model="#scoreboard" id='board'></a-entity>
-
-        <!--position="0 .5 -10"-->
 
     </a-scene>
 </div>
 <p id="demo"></p>
-<!--<input id="teleLat" type="text" value="Lat">-->
-<!--<input id="teleLon" type="text" value="Lon">-->
-<!--<input id="teleAlt" type="text" value="Alt">-->
-<!--<input id="teleHead" type="text" value="Head">-->
 <script type="text/javascript" src="JavaScript/position.js"></script>
 
 <br>

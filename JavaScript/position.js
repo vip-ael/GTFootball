@@ -198,9 +198,16 @@ async function createObject(objLatitude, objLongitude, objAltitude, fileName) {
                     y: y - 50,
                     z: z
                 });
+
                 el.setAttribute('animation-mixer', 'clip:');
+                elChild1.setAttribute('rotation', {
+                    x: 0,
+                    y: 180,
+                    z: 0
+                });
                 el.appendChild(elChild1);
                 el.setAttribute('scale', {x: 5, y: 5, z: 5});
+
                 sceneEl.appendChild(el);
             }
         }
