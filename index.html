@@ -10,6 +10,15 @@
     <script type="text/javascript" src="JavaScript/firebase.js"></script>
     <script type="text/javascript" src="JavaScript/aframe-extras.js"></script>
     <meta name="mobile-web-app-capable" content="yes">
+
+    <style>
+        .videoElement {
+            height:100%;
+            width:100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,7 +48,8 @@
 
 
 <div class="camera">
-    <video  class="videoElement" style="object-fit:fill;height:auto;min-height:100vh;width:auto;"></video>
+    <!-- <video  class="videoElement" style="object-fit:fill;height:auto;min-height:100vh;width:auto;"></video> -->
+    <video class="videoElement"></video>
 </div>
   <canvas width="512" height="512" id="scores" crossorigin="anonymous"></canvas>
   <script>

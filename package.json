@@ -4,7 +4,8 @@
   "description": "<<<<<<< HEAD ## Welcome to GitHub Pages",
   "main": "start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --https=./node_modules/live-server-https"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "dependencies": {
     "command": "0.0.5",
     "express": "^4.17.1",
+    "live-server": "^1.2.1",
+    "live-server-https": "0.0.2",
     "nlcst-to-string": "2.0.3",
     "retext": "6.0.1",
     "retext-keywords": "4.0.2"
