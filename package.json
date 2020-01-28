@@ -2,7 +2,7 @@
   "name": "digital-narratives",
   "version": "1.0.0",
   "description": "<<<<<<< HEAD ## Welcome to GitHub Pages",
-  "main": "start.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server --https=./node_modules/live-server-https"
