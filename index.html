@@ -27,23 +27,22 @@
   <button id="update">Update</button>
 
   <script>
-  var goFS = document.getElementById("goFS");
-  goFS.addEventListener("click", function() {
-      document.body.requestFullscreen();
-  }, false);
+    var goFS = document.getElementById("goFS");
+    goFS.addEventListener("click", function() {
+        document.body.requestFullscreen();
+    }, false);
 
-  var start = document.getElementById("start");
-  start.addEventListener("click", function() {
-      // var location = getLocation();
-      var location = storePosition();
+    var start = document.getElementById("start");
+    start.addEventListener("click", function() {
+        // var location = getLocation();
+        var location = storePosition();
 
-  }, false);
-  var update = document.getElementById("update");
-  update.addEventListener("click", function() {
-      updateScore();
-  }, false);
-
-</script>
+    }, false);
+    var update = document.getElementById("update");
+    update.addEventListener("click", function() {
+        updateScore();
+    }, false);
+  </script>
 
 
 
@@ -160,5 +159,7 @@
 <br>
 
 <button onclick="json()">JSON</button>
+<button id="send-push">Send Push</button>
+<script type="text/javascript" src="JavaScript/sendpush.js"></script>
 </body>
 </html>
