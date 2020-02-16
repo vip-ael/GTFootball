@@ -11,7 +11,19 @@
     <script type="text/javascript" src="JavaScript/firebase.js"></script>
     <script type="text/javascript" src="JavaScript/aframe-extras.js"></script>
     <meta name="mobile-web-app-capable" content="yes">
-
+    <script>
+        // WebXR requires HTTPS, so the site doesn't work if someone manually enters
+        // the URL and ends up using HTTP. To work around this, force redirect from
+        // http to https for non-localhost addresses.
+        if (window.location.protocol == "http:" &&
+            window.location.hostname != "localhost" &&
+            window.location.hostname != "127.0.0.1" &&
+            window.location.hostname != "[::1]") {
+            window.location = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+    <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <style>
         .videoElement {
             height:100%;
