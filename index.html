@@ -8,8 +8,8 @@
     <script type="text/javascript" src="JavaScript/camera.js"></script>
     <script type="text/javascript" src="JavaScript/calculations.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script type="text/javascript" src="JavaScript/firebase.js"></script>
-    <script type="text/javascript" src="JavaScript/aframe-extras.js"></script>
+    <script type="text/javascript" src="JavaScript/fireba se.js"></script>
+    <!--<script type="text/javascript" src="JavaScript/aframe-extras.js"></script>-->
     <meta name="mobile-web-app-capable" content="yes">
     <script>
         // WebXR requires HTTPS, so the site doesn't work if someone manually enters
@@ -35,9 +35,9 @@
 </head>
 
 <body>
-  <button id="goFS">Go fullscreen</button>
+  <!--<button id="goFS">Go fullscreen</button>-->
   <button id="start">Start</button>
-  <button id="update">Update</button>
+  <!--<button id="update">Update</button>-->
 
   <script>
     var goFS = document.getElementById("goFS");
@@ -150,7 +150,7 @@
 
   <script type="text/javascript" src="JavaScript/scoreboard.js"></script>
 <div id="a-scene">
-    <a-scene start background="color: black; transparent: true" vr-mode-ui="enabled: false">
+    <a-scene start>
         <a-assets id="assets">
             <a-asset-item id="scoreboard" src="./Assets/scoreboardFRAMES.glb"></a-asset-item>
             <a-asset-item id="buzz" src="./Assets/Buzz.glb"></a-asset-item>
