@@ -68,13 +68,14 @@ function storePosition(position) {
     cam.setAttribute('camera', 'active', true);
     cam.setAttribute('camera', 'near', .1);
     cam.setAttribute('camera', 'far', 10000000);
-    if (currLat != null && currLon != null && currAlt != null)
+    if (currLat != null && currLon != null && currAlt != null) {
         // createObject(33.779345, -84.404800, 291, "./Assets/scoreboardFRAMES.glb"); //West Village
         // createObject(33.779345, -84.404800, 291, "./Assets/Buzz.glb"); //West Village
         // createObject(33.774595, -84.397339, 283, "./Assets/scoreboardFRAMES.glb"); //Tech Green
         // createObject(33.774595, -84.397339, 283, "./Assets/Buzz.glb"); //Tech Green
         createObject(33.772518, -84.392860, 280, "./Assets/scoreboardFRAMES.glb");//Stadium
         createObject(33.772518, -84.392860, 280, "./Assets/Buzz.glb"); //Stadium
+    }
     let stuff = document.getElementsByClassName("a-enter-ar");
     let stuff2 = document.getElementsByClassName("a-enter-ar-button");
     console.log(stuff2);
