@@ -1,26 +1,29 @@
-// service worker 
+// service worker
+let isSubscribed = false;
+
+self.addEventListener('message', function handler (event) {
+    isSubscribed = event.data.isSubscribed;
+});
+
 self.addEventListener('push', function (event) {
-    // TODO: get user permission choice, handle push sending accordingly
+    if (isSubscribed) {
+        const title = 'GT Football';
+        const options = {
+            body: 'Welcome to GT Football!',
+            icon: '../Assets/buzz.png',
+            badge: '../Assets/badge.png'
+        };
 
-    console.log('[Service Worker] Push Received.');
-    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
-
-    const title = 'GT Football';
-    const options = {
-        body: 'Welcome to GT Football!',
-        icon: '../Assets/buzz.png',
-        badge: '../Assets/badge.png'
-    };
-
-    event.waitUntil(self.registration.showNotification(title, options));       
+        event.waitUntil(self.registration.showNotification(title, options));
+    }
 });
 
 self.addEventListener('notificationclick', function (event) {
-    console.log('[Service Worker] Notification click Received.');
-
     event.notification.close();
 
     event.waitUntil(
-        clients.openWindow('https://www.google.com/')
+        clients.openWindow('https://ramblinwreck.com/sports/m-footbl/')
     );
 });
+
+
