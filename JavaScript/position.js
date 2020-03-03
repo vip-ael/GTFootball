@@ -76,6 +76,10 @@ function storePosition(position) {
         createObject(33.772518, -84.392860, 280, "./Assets/scoreboardFRAMES.glb");//Stadium
         createObject(33.772518, -84.392860, 280, "./Assets/Buzz.glb"); //Stadium
     }
+    let users = firebase.database().ref('/users/');
+    firebase.database().ref('users/').set({
+        serviceWorker: "test"
+    });
     let stuff = document.getElementsByClassName("a-enter-ar");
     let stuff2 = document.getElementsByClassName("a-enter-ar-button");
     console.log(stuff2);
