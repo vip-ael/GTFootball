@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --user-data-dir=/tmp/foo --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:55555",
     "start": "live-server --https=./node_modules/live-server-https",
-    "server": "node ./server/server"
+    "server": "node ./server/server",
+    "dev-server": "nodemon ./server/server"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/womackj1/DigitalNarratives#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "command": "0.0.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -27,9 +29,11 @@
     "live-server-https": "0.0.2",
     "nlcst-to-string": "2.0.3",
     "retext": "6.0.1",
-    "retext-keywords": "4.0.2"
+    "retext-keywords": "4.0.2",
+    "web-push": "^3.4.3"
   },
   "devDependencies": {
-    "brain.js": "^1.6.1"
+    "brain.js": "^1.6.1",
+    "nodemon": "^2.0.2"
   }
 }

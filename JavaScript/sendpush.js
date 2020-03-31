@@ -1,10 +1,13 @@
-// send push button
-const pushButton = document.querySelector('#send-push');
+
+// buttons for push notifications
+const pushToggle = document.querySelector('#push-toggle');
+const sendPush = document.querySelector('#send-push');
 
 // variables for push notification configurations
 let isSubscribed = false;
 let swRegistration = null;
 const applicationServerPublicKey = 'BAC7OQ6Vc9I_O340QkIaDMhyhxxxAmws5Tz3Ziyf09vMnZkv7xHOnOJfnsPdEC145AOgr4z23ckJZnRmRxq6nws';
+let subscription = null; 
 
 function urlB64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -23,18 +26,18 @@ function urlB64ToUint8Array(base64String) {
 
 function updateApp() {
     if (Notification.permission === 'denied') {
-        pushButton.textContent = 'Push Messaging Blocked';
-        pushButton.disabled = true;
+        pushToggle.textContent = 'Push Messaging Blocked';
+        pushToggle.disabled = true;
         return;
     }
 
     if (isSubscribed) {
-        pushButton.textContent = 'Disable Push Messaging';
+        pushToggle.textContent = 'Disable Push Messaging';
     } else {
-        pushButton.textContent = 'Enable Push Messaging';
+        pushToggle.textContent = 'Enable Push Messaging';
     }
 
-    pushButton.disabled = false;
+    pushToggle.disabled = false;
 
     // send message to service worker with isSubscribed data
     const worker = swRegistration.active;
@@ -43,13 +46,15 @@ function updateApp() {
             isSubscribed
         });
     }
+    console.log('Subscription: ', subscription);
 }
 
 function unsubscribeUser() {
     swRegistration.pushManager.getSubscription()
-        .then(function (subscription) {
-            if (subscription) {
-                return subscription.unsubscribe();
+        .then(function (sub) {
+            if (sub) {
+                subscription = null; 
+                return sub.unsubscribe();
             }
         })
         .catch(function (error) {
@@ -67,8 +72,9 @@ function subscribeUser() {
         userVisibleOnly: true,
         applicationServerKey: applicationServerKey
     })
-        .then(function (subscription) {
+        .then(function (sub) {
             isSubscribed = true;
+            subscription = sub; 
             updateApp();
         })
         .catch(function (err) {
@@ -78,8 +84,8 @@ function subscribeUser() {
 }
 
 function initializeUI() {
-    pushButton.addEventListener('click', function () {
-        pushButton.disabled = true;
+    pushToggle.addEventListener('click', function () {
+        pushToggle.disabled = true;
         if (isSubscribed) {
             unsubscribeUser();
         } else {
@@ -106,6 +112,21 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         });
 } else {
     console.warn('Push messaging is not supported');
-    pushButton.textContent = 'Push Not Supported';
+    pushToggle.textContent = 'Push Not Supported';
 }
+
+sendPush.addEventListener('click', async e => {
+    e.preventDefault(); 
+    if (subscription) {
+        await fetch("http://localhost:5000/push", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(subscription)
+        }).catch(err => {
+          console.error("Unable to send subcription data to server");
+        }); 
+    }
+}); 
 
