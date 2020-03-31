@@ -1,16 +1,14 @@
-var config = {
-    apiKey: "AIzaSyCbUoec8Hr-DtnUk1srWlpRpGEZycTgBHI",
-    authDomain: "arworldgt.firebaseapp.com",
-    databaseURL: "https://arworldgt.firebaseio.com",
-    projectId: "arworldgt",
-    storageBucket: "gs://arworldgt.appspot.com/",
-    messagingSenderId: "1007753558225"
+var firebaseConfig = {
+    apiKey: "AIzaSyCfLWz-CIHI7yW9K1LpQXMI5DzujjZDslQ",
+    authDomain: "gtfootball-120e9.firebaseapp.com",
+    databaseURL: "https://gtfootball-120e9.firebaseio.com",
+    projectId: "gtfootball-120e9",
+    storageBucket: "gtfootball-120e9.appspot.com",
+    messagingSenderId: "264089669835",
+    appId: "1:264089669835:web:1efe65bb169319eac30b4e",
+    measurementId: "G-EYMZVPVFG6"
 };
-firebase.initializeApp(config);
-// Get a reference to
-// the database service
-
-
-
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 
